@@ -317,27 +317,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wB4-yY-wtv">
-                                <rect key="frame" x="152" y="127" width="110" height="30"/>
+                                <rect key="frame" x="152" y="163.5" width="110" height="30"/>
                                 <state key="normal" title="Create And Test"/>
                                 <connections>
                                     <action selector="createAndTest" destination="58Q-VJ-V9W" eventType="touchUpInside" id="flf-zL-TJI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXH-Kb-b9f">
-                                <rect key="frame" x="174.5" y="161" width="65" height="30"/>
+                                <rect key="frame" x="174.5" y="197.5" width="65" height="30"/>
                                 <state key="normal" title="Test Only"/>
                                 <connections>
                                     <action selector="testOnly" destination="58Q-VJ-V9W" eventType="touchUpInside" id="gyg-Qd-yFF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result Times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdL-WH-4ZY">
-                                <rect key="frame" x="154.5" y="199" width="105.5" height="21"/>
+                                <rect key="frame" x="154.5" y="235.5" width="105.5" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D3C-Wv-iz9">
-                                <rect key="frame" x="0.0" y="228" width="414" height="634"/>
+                                <rect key="frame" x="0.0" y="264.5" width="414" height="597.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="58Q-VJ-V9W" id="bVg-x1-5Za"/>
@@ -348,26 +348,45 @@
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tripples Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66a-Bd-2qR">
+                                <rect key="frame" x="16" y="127" width="107" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jIy-96-rgD">
+                                <rect key="frame" x="131" y="120.5" width="267" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="trippleFieldChanged:" destination="58Q-VJ-V9W" eventType="editingDidEnd" id="vVo-WE-Qfw"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="wB4-yY-wtv" firstAttribute="top" secondItem="4Ip-mT-Uh9" secondAttribute="bottom" constant="16" id="1FV-0A-eg2"/>
                             <constraint firstItem="wB4-yY-wtv" firstAttribute="centerX" secondItem="hhv-9S-zRn" secondAttribute="centerX" id="3zU-PH-vXo"/>
                             <constraint firstItem="k9p-OF-0in" firstAttribute="centerX" secondItem="hhv-9S-zRn" secondAttribute="centerX" id="4Bp-zr-Cz4"/>
                             <constraint firstItem="4Ip-mT-Uh9" firstAttribute="top" secondItem="Ubw-gp-cLu" secondAttribute="bottom" constant="8" id="6sp-QB-CrY"/>
+                            <constraint firstItem="66a-Bd-2qR" firstAttribute="top" secondItem="4Ip-mT-Uh9" secondAttribute="bottom" constant="16" id="97H-d9-QJU"/>
                             <constraint firstItem="kxg-yZ-T1L" firstAttribute="top" secondItem="D3C-Wv-iz9" secondAttribute="bottom" id="C4A-Kb-omw"/>
                             <constraint firstItem="zXH-Kb-b9f" firstAttribute="centerX" secondItem="hhv-9S-zRn" secondAttribute="centerX" id="DHi-EY-UNf"/>
                             <constraint firstItem="Ubw-gp-cLu" firstAttribute="top" secondItem="DlM-Yx-BS8" secondAttribute="bottom" constant="8" id="HAr-j1-9ph"/>
+                            <constraint firstItem="jIy-96-rgD" firstAttribute="centerY" secondItem="66a-Bd-2qR" secondAttribute="centerY" id="Ifd-Wu-Rwo"/>
                             <constraint firstItem="D3C-Wv-iz9" firstAttribute="leading" secondItem="hhv-9S-zRn" secondAttribute="leading" id="UIz-ie-jca"/>
                             <constraint firstItem="gdL-WH-4ZY" firstAttribute="top" secondItem="zXH-Kb-b9f" secondAttribute="bottom" constant="8" id="V5V-ho-Nom"/>
                             <constraint firstItem="D3C-Wv-iz9" firstAttribute="top" secondItem="gdL-WH-4ZY" secondAttribute="bottom" constant="8" id="aR5-2c-JIr"/>
+                            <constraint firstItem="wB4-yY-wtv" firstAttribute="top" secondItem="66a-Bd-2qR" secondAttribute="bottom" constant="16" id="alF-dk-rmh"/>
                             <constraint firstItem="k9p-OF-0in" firstAttribute="centerY" secondItem="hhv-9S-zRn" secondAttribute="centerY" id="azu-Yd-CU2"/>
+                            <constraint firstItem="66a-Bd-2qR" firstAttribute="leading" secondItem="hhv-9S-zRn" secondAttribute="leading" constant="16" id="baT-EX-7dB"/>
                             <constraint firstItem="4Ip-mT-Uh9" firstAttribute="centerX" secondItem="hhv-9S-zRn" secondAttribute="centerX" id="bb9-l2-ZRg"/>
                             <constraint firstItem="Ubw-gp-cLu" firstAttribute="leading" secondItem="hhv-9S-zRn" secondAttribute="leading" constant="20" id="eyo-q1-cXg"/>
                             <constraint firstAttribute="trailing" secondItem="Ubw-gp-cLu" secondAttribute="trailing" constant="20" id="lhL-Or-0b8"/>
                             <constraint firstItem="gdL-WH-4ZY" firstAttribute="centerX" secondItem="hhv-9S-zRn" secondAttribute="centerX" id="rrJ-Xc-NeX"/>
                             <constraint firstAttribute="trailing" secondItem="D3C-Wv-iz9" secondAttribute="trailing" id="tsv-gf-RuU"/>
                             <constraint firstItem="zXH-Kb-b9f" firstAttribute="top" secondItem="wB4-yY-wtv" secondAttribute="bottom" constant="4" id="uCK-SY-AuE"/>
+                            <constraint firstAttribute="trailing" secondItem="jIy-96-rgD" secondAttribute="trailing" constant="16" id="vRb-4C-wwb"/>
+                            <constraint firstItem="jIy-96-rgD" firstAttribute="leading" secondItem="66a-Bd-2qR" secondAttribute="trailing" constant="8" id="z2x-nC-l5e"/>
                         </constraints>
                     </view>
                     <connections>
@@ -377,11 +396,13 @@
                         <outlet property="slider" destination="Ubw-gp-cLu" id="BUu-B0-s4W"/>
                         <outlet property="spinner" destination="k9p-OF-0in" id="ycw-iF-fkt"/>
                         <outlet property="testOnlyButton" destination="zXH-Kb-b9f" id="CfF-X5-k1n"/>
+                        <outlet property="trippleLabel" destination="66a-Bd-2qR" id="Sac-j0-vHX"/>
+                        <outlet property="trippleTextField" destination="jIy-96-rgD" id="9FC-Tx-OWj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20m-uE-D0y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1175" y="-1385"/>
+            <point key="canvasLocation" x="1173.913043478261" y="-1385.4910714285713"/>
         </scene>
     </scenes>
 </document>

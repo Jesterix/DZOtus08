@@ -23,7 +23,7 @@ import UIKit
 class SuffixSequenceViewController: DataStructuresViewController {
       //MARK: - Variables
 
-    let suffixArrayManipulator: SuffixArrayManipulator = SwiftSuffixArrayManipulator()
+    var suffixArrayManipulator: SuffixArrayManipulator = SwiftSuffixArrayManipulator()
 
     var creationTime: TimeInterval = 0
     var changingSuffixesTime: TimeInterval = 0
@@ -31,6 +31,10 @@ class SuffixSequenceViewController: DataStructuresViewController {
     var searchFor10TripplesTime: TimeInterval = 0
     var searchForTripplesTime: TimeInterval = 0
 
+    @IBOutlet weak var trippleLabel: UILabel!
+    
+    @IBOutlet weak var trippleTextField: UITextField!
+    
 
       //MARK: - Methods
 
@@ -39,10 +43,26 @@ class SuffixSequenceViewController: DataStructuresViewController {
       override func viewDidLoad() {
         super.viewDidLoad()
         createAndTestButton.setTitle("Create SuffixIterator and Test", for: [])
-        
+        trippleLabel.text = "Number of random tripples to test:"
+        trippleTextField.delegate = self
+        trippleTextField.autocorrectionType = .no
+        trippleTextField.keyboardType = .numberPad
       }
-
-      //MARK: Superclass creation/testing overrides
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func trippleFieldChanged(_ sender: UITextField) {
+        guard let text = sender.text, let number = Int(text) else {
+            return
+        }
+        suffixArrayManipulator.numberOfTrippplesToFind = number
+    }
+    //TODO: при нажатии на тест текстфилд резайн ферст респондер
+    //и подумать над отдельным модулем
+    
+    //MARK: Superclass creation/testing overrides
 
       override func create(_ size: Int) {
         creationTime = suffixArrayManipulator.setupWithTripplesCount(size)
@@ -93,4 +113,11 @@ class SuffixSequenceViewController: DataStructuresViewController {
         return cell
     }
     
+}
+
+extension SuffixSequenceViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
