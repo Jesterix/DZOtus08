@@ -10,9 +10,11 @@ import Foundation
 
 
 protocol SuffixArrayManipulator {
+    var numberOfTrippplesToFind: Int { get set }
     func suffixArrayHasObjects() -> Bool
-    func setup() -> TimeInterval
+    func setupWithTripplesCount(_ count: Int) -> TimeInterval
     func changeEachSuffix() -> TimeInterval
     func reverseSuffixArray() -> TimeInterval
     func searchFor10Tripples() -> (TimeInterval, Int)
+    func searchForTripples() -> (TimeInterval, Int)
 }

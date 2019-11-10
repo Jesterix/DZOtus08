@@ -10,6 +10,7 @@ import Foundation
 
 open class SwiftSuffixArrayManipulator: SuffixArrayManipulator {
     var suffixArray = [(String, String)]()
+    var numberOfTrippplesToFind: Int = 0
     
     func suffixArrayHasObjects() -> Bool {
         if suffixArray.count == 0 {
@@ -19,7 +20,8 @@ open class SwiftSuffixArrayManipulator: SuffixArrayManipulator {
         }
     }
     
-    func setup() -> TimeInterval {
+    func setupWithTripplesCount(_ count: Int) -> TimeInterval {
+        numberOfTrippplesToFind = count
         return Profiler.runClosureForTime() {
             var dataSource = SuffixArray()
             dataSource.getSuffixes()
@@ -66,5 +68,22 @@ open class SwiftSuffixArrayManipulator: SuffixArrayManipulator {
         return (time, successSearches)
     }
     
+    func searchForTripples() -> (TimeInterval, Int) {
+        var tripplesToFind = [String]()
+        for _ in 0...numberOfTrippplesToFind {
+            tripplesToFind.append(StringGenerator().generateRandomString(3))
+        }
+        var successSearches = 0
+        let time = Profiler.runClosureForTime {
+            for tripple in tripplesToFind {
+                for suffix in self.suffixArray {
+                    if suffix.0.contains(tripple) {
+                        successSearches += 1
+                    }
+                }
+            }
+        }
+        return (time, successSearches)
+    }
     
 }

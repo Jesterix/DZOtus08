@@ -11,7 +11,9 @@ private enum SuffixArrayVCRow: Int {
   changeSuffixes,
   reverseSuffixArray,
   searchFor10Tripples,
-  find10Tripples
+  find10Tripples,
+  searchForTripples,
+  findTripples
 
 }
 
@@ -27,6 +29,7 @@ class SuffixSequenceViewController: DataStructuresViewController {
     var changingSuffixesTime: TimeInterval = 0
     var reverseSuffixArrayTime: TimeInterval = 0
     var searchFor10TripplesTime: TimeInterval = 0
+    var searchForTripplesTime: TimeInterval = 0
 
 
       //MARK: - Methods
@@ -36,12 +39,13 @@ class SuffixSequenceViewController: DataStructuresViewController {
       override func viewDidLoad() {
         super.viewDidLoad()
         createAndTestButton.setTitle("Create SuffixIterator and Test", for: [])
+        
       }
 
       //MARK: Superclass creation/testing overrides
 
       override func create(_ size: Int) {
-        creationTime = suffixArrayManipulator.setup()
+        creationTime = suffixArrayManipulator.setupWithTripplesCount(size)
       }
 
     override func test() {
@@ -49,6 +53,7 @@ class SuffixSequenceViewController: DataStructuresViewController {
             changingSuffixesTime = suffixArrayManipulator.changeEachSuffix()
             reverseSuffixArrayTime = suffixArrayManipulator.reverseSuffixArray()
             searchFor10TripplesTime = suffixArrayManipulator.searchFor10Tripples().0
+            searchForTripplesTime = suffixArrayManipulator.searchForTripples().0
         } else {
             print("SuffixArray is not set up yet!")
         }
@@ -75,6 +80,12 @@ class SuffixSequenceViewController: DataStructuresViewController {
         case SuffixArrayVCRow.find10Tripples.rawValue:
             cell.textLabel!.text = "Find 10 Random Tripples Times:"
             cell.detailTextLabel!.text = String(suffixArrayManipulator.searchFor10Tripples().1)
+        case SuffixArrayVCRow.searchForTripples.rawValue:
+            cell.textLabel!.text = "Search For Random Tripples:"
+            cell.detailTextLabel!.text = formattedTime(searchForTripplesTime)
+        case SuffixArrayVCRow.findTripples.rawValue:
+            cell.textLabel!.text = "Find Random Tripples Times:"
+            cell.detailTextLabel!.text = String(suffixArrayManipulator.searchForTripples().1)
         default:
             print("Unhandled row! \((indexPath as NSIndexPath).row)")
         }
